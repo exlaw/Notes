@@ -52,9 +52,13 @@ VAEs 是一类重要的生成模型， 除了 VAEs 还有一类十分重要的�
 
 离散型随机变量，P和Q的概率分布 KL 散度
 
+
+
 ![](http://latex.codecogs.com/gif.latex?\\D_{kl}(P||Q)=-\sum_{i}P(x)ln\frac{Q(i)}{P(i)})
 
 连续随机变量，可以按照积分的方式进行定义
+
+
 
 ![](http://latex.codecogs.com/gif.latex?\\D_{kl}(P||Q)=-\int_{-\infty}^{\infty}P(x)ln\frac{Q(i)}{P(i)}dx)
 
@@ -67,9 +71,9 @@ KL 并不是一个度量， 从 P 到 Q的距离通常不等于从Q到P的距离
 #### VAE 下界推导
 
 为了求解真实的后验p(z∣x) p(z|x)p(z∣x)概率分布，VAE引入一个识别模型q(z∣x) q(z|x)q(z∣x)去近似p(z∣x) p(z|x)p(z∣x)，那么衡量这两个分布之间的差异自然就是相对墒了，也就是KL散度，VAE的目的就是要让这个相对墒越小，因此推导从相对墒开始：
-$$
-D_{kl}(q(z|x)||p(z|x))=-\int P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim q(z|x)}log\frac{q(z|x)}{p(z,x)} + logP(x)
-$$
+
+
+
 ![](http://latex.codecogs.com/gif.latex?\\D_{kl} q(z|x)||p(z|x)=-\int%20P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim%20q(z|x)}log\frac{q(z|x)}{p(z,x)}%20+%20logP(x))
 
 令上述期望项为  L(x), 可以明显的看出  L（x） <= logP(x)    因为 KL 散度的值是永远大于0的。
@@ -78,7 +82,11 @@ $$
 
 L(x) 经过贝叶斯展开和蒙特卡洛采样后，可以变成如下的形式
 
+
+
 ![](<http://latex.codecogs.com/gif.latex?\\L(x)=-KLq(z|x)||p(z|x)%20+%20E_{z\sim%20q(z|x)}logP(z,x)>)
+
+
 
 ![](<http://latex.codecogs.com/gif.latex?\\=\frac{1}{2}\sum_{j=1}^{J}1+log(\sigma_j^2)-\mu_j^2-\sigma_j^2%20+%20\frac{1}{L}\sum_{l=1}{L}logp(x|z_l)>)
 
