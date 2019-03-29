@@ -74,7 +74,7 @@ KL 并不是一个度量， 从 P 到 Q的距离通常不等于从Q到P的距离
 
 
 
-![](http://latex.codecogs.com/gif.latex?\\D_{kl} q(z|x)||p(z|x)=-\int%20P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim%20q(z|x)}log\frac{q(z|x)}{p(z,x)}%20+%20logP(x))
+![](http://latex.codecogs.com/gif.latex?\\D_{kl}q(z|x)||p(z|x)=-\int%20P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim%20q(z|x)}log\frac{q(z|x)}{p(z,x)}%20+%20logP(x))
 
 令上述期望项为  L(x), 可以明显的看出  L（x） <= logP(x)    因为 KL 散度的值是永远大于0的。
 
