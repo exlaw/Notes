@@ -109,6 +109,9 @@
 
 
 ## 往年考题
+
+### 15年考题
+
 1. Where do software architecture come from? List five possible sources of software architecture.
 2. What distinguishes an architecture for a software product line from an architecture for a simple product?
 3. How to model quality attribute scenarios? Graphically model two quality attributes in "stimulus-response" format: availability and performance.
@@ -120,3 +123,19 @@
 9. Briefly describe the fundamental principles of SOA and discuss the impact of SOA on quality attributes like interoperability, scalability and security.
 10. Describe outputs generated from each phase of ATAM process.
 11. Why SPL and MDA have high reusability? Compare and discuss their commonality and differences.
+
+### 17年考题
+
+1. Briefly describe the general activities in a software architecture process, and the major inputs and outputs at each activity. 
+2. What distinguishes an architecture for a software product line from an architecture for a single product? 
+3. What are generic design strategies applied in designing software? Give a concise working example with software architecture for each strategy. 
+4. How to model quality attribute scenarios? Graphically model two quality attributes in “stimulus-response” format: availability and modifiability. 
+5. Describe outputs generated from each phase of ATAM process. 
+6. Map, and list four views of each category of style. 
+7. What are ASR? List four sources and methods for extracting and identifying ASRs. 
+8. Please name at least three Object-Oriented principles, and explain how they are applied in Strategy pattern? 
+9. What should be included in a typical software architecture documentation package? Briefly describe each component and its purpose. 
+10. Describe 4+1 view
+11. 软件设计的的三个变化维度，每个维度的变化点。differing binding time如何影响可修改性和可测试性。 
+
+Variation: forms of variation * software entity varied * binding time
