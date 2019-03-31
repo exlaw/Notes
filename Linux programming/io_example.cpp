@@ -3,6 +3,8 @@
 #include <zconf.h>
 #include <iostream>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
+#include <dirent.h>
 
 using namespace std;
 
@@ -17,10 +19,10 @@ int main()
 
     /**
      *   int open(const char *, int, ...)
-     *   1. 文件名   2. 打开方式   3. 权限
-     *   返回： 文件描述符（是针对进程的）
-     */
-
+//     *   1. 文件名   2. 打开方式   3. 权限
+//     *   返回： 文件描述符（是针对进程的）
+//     */
+//
     int fd = open("../data", O_RDWR, S_IRUSR);
 
     /**
@@ -132,10 +134,63 @@ int main()
      */
     FILE* tmp_file = tmpfile();
 
-    cout << endl <<chdir("CMakeFiles");
+    /**
+     *  一系列文件夹操作测试
+     */
+    DIR* dir = opendir("CMAKeFiles");
+
+    cout << mkdir("test", S_IRWXU) << endl;
+
+    char global_pwd[1024];
+
+    cout << getcwd(global_pwd, sizeof(global_pwd)) << " " << global_pwd << endl;
+
+    cout <<  chdir("test") << endl;
+
+    cout << getcwd(global_pwd, sizeof(global_pwd)) << " " << global_pwd << endl;
+
+    cout <<  fchdir(dir->__dd_fd) << endl;
+
+    cout << getcwd(global_pwd, sizeof(global_pwd)) << " " << global_pwd << endl;
+
+    chdir("..");
+
+    cout << rmdir("test") << endl;
+
+    /**
+     *  三个 API， 几类对象一定要弄清
+     */
+    dir = opendir("CMAKeFiles");
+    struct dirent *entry;
+    while ( (entry = readdir(dir)) != NULL ) {
+        struct stat info{};
+        lstat(entry->d_name, &info);
+        if ( S_ISDIR(info.st_mode) ){
+            cout << "dir";
+        }
+        else{
+            cout << "not";
+        }
+    }
+
+    /**
+     *  后面的文件锁操作还是  fcntl 里面的
+     *
+     */
+
+    /**
+     *  Linux 文件中的锁
+     *  首先是共享锁和排他锁之间的关系，只有共享锁可以相互进行共享
+     *  劝告锁，不能主动阻拦，需要去检查判断。
+     *  强制锁，被锁住的文件在其他文件访问时会被强制阻拦
+     *  记录锁， 用于锁住文件的某个部分。
+     *
+     *  Linux 锁用的API 还是 fcntl 和 flock
+     */
+
+
 
     fclose(file);
-
 
 
     /**
