@@ -51,17 +51,20 @@ VAEs 是一类重要的生成模型， 除了 VAEs 还有一类十分重要的�
 **KL散度**是两个概率分布P和Q差别的非对称性的度量。 KL散度是用来 度量使用基于Q的编码来编码来自P的样本平均所需的额外的位元数。 典型情况下，P表示数据的真实分布，Q表示数据的理论分布，模型分布，或P的近似分布。
 
 离散型随机变量，P和Q的概率分布 KL 散度
+$$
+D_{kl}(P||Q)=-\sum_{i}P(x)ln\frac{Q(i)}{P(i)}
+$$
 
-
-
-![](http://latex.codecogs.com/gif.latex?\\D_{kl}(P||Q)=-\sum_{i}P(x)ln\frac{Q(i)}{P(i)})
 
 
 连续随机变量，可以按照积分的方式进行定义
 
+$$
+D_{kl}(P||Q)=-\int_{-\infty}^{\infty}P(x)ln\frac{Q(i)}{P(i)}dx
+$$
 
 
-![](http://latex.codecogs.com/gif.latex?\\D_{kl}(P||Q)=-\int_{-\infty}^{\infty}P(x)ln\frac{Q(i)}{P(i)}dx)
+![](http://latex.codecogs.com/gif.latex?\\)
 
 
 KL 的 散度的值是非负值，当且仅当 P = Q 时，KL 散度的值是0。
@@ -74,9 +77,10 @@ KL 并不是一个度量， 从 P 到 Q的距离通常不等于从Q到P的距离
 
 为了求解真实的后验p(z∣x) p(z|x)p(z∣x)概率分布，VAE引入一个识别模型q(z∣x) q(z|x)q(z∣x)去近似p(z∣x) p(z|x)p(z∣x)，那么衡量这两个分布之间的差异自然就是相对墒了，也就是KL散度，VAE的目的就是要让这个相对墒越小，因此推导从相对墒开始：
 
+$$
+D_{kl}q(z|x)||p(z|x)=-\int P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim q(z|x)}log\frac{q(z|x)}{p(z,x)} + logP(x)
+$$
 
-
-![](http://latex.codecogs.com/gif.latex?\\D_{kl}q(z|x)||p(z|x)=-\int%20P(x)log\frac{q(z|x)}{p(z|x)}dz=E_{z\sim%20q(z|x)}log\frac{q(z|x)}{p(z,x)}%20+%20logP(x))
 
 
 令上述期望项为  L(x), 可以明显的看出  L（x） <= logP(x)    因为 KL 散度的值是永远大于0的。
@@ -84,14 +88,13 @@ KL 并不是一个度量， 从 P 到 Q的距离通常不等于从Q到P的距离
 所以目标可以变为优化 L(x)
 
 L(x) 经过贝叶斯展开和蒙特卡洛采样后，可以变成如下的形式
+$$
+L(x)=-KLq(z|x)||p(z|x)+E_{z\sim q(z|x)}logP(z,x)
+$$
 
-
-
-![](<http://latex.codecogs.com/gif.latex?\\L(x)=-KLq(z|x)||p(z|x)%20+%20E_{z\sim%20q(z|x)}logP(z,x)>)
-
-
-
-![](<http://latex.codecogs.com/gif.latex?\\=\frac{1}{2}\sum_{j=1}^{J}1+log(\sigma_j^2)-\mu_j^2-\sigma_j^2%20+%20\frac{1}{L}\sum_{l=1}{L}logp(x|z_l)>)
+$$
+=\frac{1}{2}\sum_{j=1}^{J}1+log(\sigma_j^2)-\mu_j^2-\sigma_j^2+\frac{1}{L}\sum_{l=1}{L}logp(x|z_l)
+$$
 
 
 其中 sigma 和 mu 是均值和方差， 后面的 zl 是蒙特卡罗采样的结果。  只要把这个作为一个损失函数进行处理即可。
