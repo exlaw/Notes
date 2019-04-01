@@ -124,6 +124,8 @@
 10. **Describe outputs generated from each phase of ATAM process.**
 11. Why SPL and MDA have high reusability? Compare and discuss their commonality and differences.
 
+
+
 ### 17年考题
 
 1. **Briefly describe the general activities in a software architecture process, and the major inputs and outputs at each activity.** 
@@ -162,29 +164,6 @@ Variation: forms of variation * software entity varied * binding time
 
 
 
-
-上面黑体字标出的题往年考查的概率很大，要是考的必须拿满分。
-
-1. What distinguishes an architecture for a software product line from an architecture for a single product?
-
-
-
-软件产品线是指具有⼀组可管理理的公共特性的软件密集性系统的合集，这些系统满足特定的 市场需求或任务需求，并且按预定义的⽅方式从⼀一个公共的核⼼心资产集开发得到。 
-
-
-
-首先，与单个产品架构相⽐比，产品线中的产品分为custom assets 和 core assets 两部分 
-
-所以它们的主要不同在于关注点转移:   从单独的产品到产品线的项目暗示了一个策略: 从特定的项目开发到特定业务领域产品的愿景产品线关注产品的特征，⽽单个产品架构更关注项目本身。
-
-
-
-此外，产品线具有可重用和可变性两大特征。
-产品线中的重⽤与单个产品架构中代码的重用相比，还包括了需求、业务等，几乎已经是开发者想要的了，⽽不用像单个产品架构中那样复制之后再修改。
-
-产品线架构还拥有可变性的特点，在如单个产品架构定义正常功能之外，还定义了可改变的功能，可以识别并支持 variation points。 
-
-总的来说，软件生产线架构与单个产品架构相比，可以减少成本、快速上市、减少风险、提高质量，更容易适应市场。
 
 
 
