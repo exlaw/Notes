@@ -361,3 +361,46 @@ Linux内核的能力: 内存管理，文件系统，进程管理，多线程支�
 - 没有内存保护
 - 小内核栈
 - 要考虑并发
+
+
+
+##### 33. 遗漏点： 和重点命令实现相关的API （H，M）
+
+
+
+###### 文件权限
+
+**chmod()会依参数mode 权限来更改参数path 指定文件的权限。**
+
+`int chmod(const char *path, mode_t mode);`
+
+
+
+###### 软连接和硬链接
+
+**硬链接建立**
+
+`int link(const char *oldpath, const char *newpath);`
+
+**去除链接（包括两种）**
+
+`int unlink(const char *pathname);`
+
+**软链接建立**
+
+`int symlink(const char *oldpath, const char *newpath);`
+
+**将参数path的符号连接内容存到参数buf所指的内存空间**
+
+`int readlink(const char *path, char *buf, size_t bufsiz);`
+
+
+
+###### 重定向
+
+`int dup2(int odlfd, int newfd);`
+
+`int dup(int oldfd);`
+
+
+
