@@ -177,6 +177,21 @@ Variation: forms of variation * software entity varied * binding time
 
 
 
+### 19 年最终考题 （个人回忆）
+
+1. 如何对质量属性场景建模？画出 Interoperability 和 modifiability 的刺激-响应图
+2. What are ASR? List four sources and methods for extracting and identifying ASRs. 
+3. 4+1 视图介绍（还要画图，我的图画的的有点问题，去wiki百科上可以看）
+4. What are generic design strategies applied in designing software? Give a concise working example with software architecture for each strategy. (和17年一样的)
+5. Map, and list four views of each category of style.（每年必考题）
+6. What should be included in a typical software architecture documentation package? Briefly describe each component and its purpose.  （和17年基本一样）
+7. 描述 在 ATAM 的每一个过程中 有哪些 stake holder 和他们的职责
+8. 软件产品线架构如何实现可变性？描述可变性机制的工作方式，和变化点。 （和去年一样）
+9.  Explain the context, benefits and limitations of Broker Architecture Pattern.
+10. 微服务 和 SOA 的区别，相同点
+11. 一个买票系统的设计题，不同的角色有不同的打折方案，用策略模式设计， 最后画图，还要说明策略模式的使用场景。
+12. 设计题，和 15 年的设计题一模一样
+
 
 
 
