@@ -295,17 +295,69 @@ ash, bash, sh, csh, tcsh, ksh 。。。
 
 
 
-##### 28.  文件夹操作 API   （M，H） 比较复杂
+##### 28.  文件夹操作 API   （M，H） 比较复杂，（最新消息，不考）
+
+* `int stat(const char *filename, struct stat *buf);`
+
+  `int fstat(int filedes, struct stat *buf);`
+
+  `int lstat(const char *file_name, struct stat *buf);`
+
+  （H， H）
 
 
 
+* `int chdir(const char *path)`
+
+  `char *getcwd(char *buf, size_t size);`
+
+  `DIR *opendir(const char *name);`
+
+  `struct dirent *readdir(DIR *dir)`
+
+    (M, H)
+
+##### 29   内核的定义 （M，S）
+
+操作系统是一系列程序的集合，其中最重要的部分构成了内核，
+
+Linux内核的能力: 内存管理，文件系统，进程管理，多线程支持，抢占式，多处理支持等。
 
 
 
+##### 30. 内核驱动模块 （S， M）
+
+1. 许多常见驱动的源代码集成在内核源码里
+2.  也有第三方开发的驱动，可以单独编译成模块.ko
+3.  编译需要内核头文件的支持
 
 
 
+##### 31. 模块加载相关命令 （M， M）
+
+底层命令
+
+* insmod
+*  rmmod
+
+高层命令
+
+*  modprobe
+*  modprobe  -r  (有依赖功能)
+
+模块的依赖
+自动按需加载
+自动按需卸载
+
+* moddep
+*  lsmod
+*  modinfo
 
 
 
+##### 32. 一些注意点（M，M）
 
+- 不能用C库
+- 没有内存保护
+- 小内核栈
+- 要考虑并发
